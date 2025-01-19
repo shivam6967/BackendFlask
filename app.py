@@ -21,7 +21,9 @@ APPLICATION_TOKEN = os.getenv("APPLICATION_TOKEN")
 ASTRA_DB_CLIENT_ID = os.getenv("ASTRA_DB_CLIENT_ID")
 ASTRA_DB_SECRET = os.getenv("ASTRA_DB_SECRET")
 ASTRA_DB_URL = os.getenv("ASTRA_DB_URL")
-JSON_DIR = os.getenv("JSON_DIR")
+JSON_DIR = os.getcwd()
+JSON_DIR = os.path.join(JSON_DIR, "AI")
+os.makedirs(JSON_DIR, exist_ok=True)
 
 # Astra DB Connection
 client = DataAPIClient(f"AstraCS:{ASTRA_DB_CLIENT_ID}:{ASTRA_DB_SECRET}")
